@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <title lang="en">RV cars</title>
+  </head>
+  <body>
+    <!-- // Обгортка для сайту // -->
+    <div class="wrapper">
+      <header class="header">
+        <div class="header__container">
+          <div class="header__logo">
+            <img src="./images/logo1_2.svg" alt="Logo" />
+          </div>
+          <div class="header__body">
+            <nav class="header__menu menu">
+              <ul class="menu-list">
+                <li class="menu-item">
+                  <a href="#" class="menu-link">Моделі</a>
+                </li>
+                <li class="menu-item">
+                  <a href="#" class="menu-link">Купити</a>
+                </li>
+                <li class="menu-item">
+                  <a href="#" class="menu-link">Найняти</a>
+                </li>
+                <li class="menu-item">
+                  <a href="#" class="menu-link">Новини</a>
+                </li>
+              </ul>
+            </nav>
+            <button class="header__button" type="button">
+              Замовити дзвінок
+            </button>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <section class="page__main main-section">
+          <div class="main-section__container">
+            <div class="main-section__content">
+              <div class="main-section__label">Будинки на колесах</div>
+              <h1 class="main-section__title title">
+                Придбання будинку на колесах - це вкладення у свободу та
+                незалежність.
+              </h1>
+            </div>
+            <a href="#" class="main-section__video-link"
+              ><img
+                src="./images/play.svg"
+                alt=""
+                class="main-section__video-link-btn"
+              />Подивіться фільм</a
+            >
+          </div>
+          <!-- віводимо поза межи div-у з міткою __contaner, щоб уникнути додавання до цього div відповідних стилей -->
+          <div class="main-section__image">
+            <div class="overlay"></div>
+            <img src="images/main/bg.jpg" alt="Foto with a little house" />
+          </div>
+        </section>
+        <section class="page__materials materials">
+          <div class="materials__container">
+            <div class="materials__content">
+              <h2 class="materials_title title title--dark">
+                Автодома: свобода, подорожі та зручності на колесах.
+              </h2>
+              <div class="materials__text text">
+                <p>
+                  Будинки на колесах, або автобудинки, стають все більш
+                  популярним вибором для людей, які шукають альтернативні
+                  способи життя та подорожей. Ці пересувні домівки пропонують
+                  свободу переміщення та можливість досліджувати світ, не
+                  відмовляючись від зручностей будинку.
+                </p>
+              </div>
+              <a href="#" class="materials__more">Читати далі</a>
+            </div>
+            <!-- Slider main container -->
+            <div class="materials__slider slider-materials swiper">
+              <!-- Additional required wrapper -->
+              <div class="slider-materials__wrapper swiper-wrapper">
+                <!-- Slides -->
+                <div class="slider-materials__slide swiper-slide">
+                  <img
+                    src="images/models/rv_2.jpg"
+                    alt="a man stands on the wooden beams of the house they are building"
+                  />
+                </div>
+                <div class="slider-materials__slide swiper-slide">
+                  <img src="images/models/rv_1.jpg" alt="" />
+                </div>
+                <div class="slider-materials__slide swiper-slide">
+                  <img
+                    src="images/models/rv.jpg"
+                    alt="a man stands on the wooden beams of the house they are building"
+                  />
+                </div>
+              </div>
+              <!-- If we need pagination -->
+              <div class="slider-materials__pagination swiper-pagination"></div>
+            </div>
+          </div>
+        </section>
+        <section class="page__inovate inovate">
+          <div class="inovate__container">
+            <h2 class="inovate__title title">Інновації</h2>
+            <div class="inovate__text text">
+              <p>
+                Інновації у виробництві будинків на колесах значно просунулися з
+                інтеграцією нових технологій. Тепер ці мобільні будинки оснащені
+                найсучаснішими функціями, які задовольняють прагнення сучасного
+                мандрівника до комфорту та ефективності під час руху. Ці
+                технологічні вдосконалення кардинально змінили наше уявлення про
+                житловий простір, від інтелектуальних систем управління енергією
+                до складних меблів.
+              </p>
+              <p>
+                Використання стійких матеріалів і відновлюваних джерел енергії
+                зробило ці будинки на колесах екологічно чистим варіантом для
+                тих, хто хоче зменшити свій вуглецевий слід. Оскільки ми
+                продовжуємо підтримувати більш мобільний спосіб життя, очевидно,
+                що інновації в цій галузі продовжуватимуть розвиватися,
+                відкриваючи нові можливості для дизайну дому та подорожей.
+              </p>
+            </div>
+          </div>
+        </section>
+        <div class="page__info info">
+          <div class="info__container">
+            <div class="info__image">
+              <img src="./images/models/rv.jpg" alt="House" />
+            </div>
+            <div class="info__content">
+              <article class="info__item">
+                <h4 class="info__title">Свобода дослідження</h4>
+                <div class="info__text text">
+                  <p>
+                    Чи то гірський перевал, чи тихе озеро — ви можете
+                    прокидатися з новим видом кожного дня.
+                  </p>
+                </div>
+              </article>
+              <article class="info__item">
+                <h4 class="info__title">Дім на колесах</h4>
+                <div class="info__text text">
+                  <p>
+                    З кухнею, ванною та комфортабельними спальними місцями ви
+                    матимете всі зручності будинку завжди з собою.
+                  </p>
+                </div>
+              </article>
+              <article class="info__item">
+                <h4 class="info__title">Універсальність</h4>
+                <div class="info__text text">
+                  <p>
+                    Використовуйте їх для вікендових відпусток, перетину країни
+                    або навіть як мобільний офіс.
+                  </p>
+                </div>
+              </article>
+              <article class="info__item">
+                <h4 class="info__title">Зв’язок з природою</h4>
+                <div class="info__text text">
+                  <p>
+                    Прокидаєтеся під спів птахів, спостерігаєте за зірками біля
+                    вогнища та відчуваєте землю під ногами.
+                  </p>
+                </div>
+              </article>
+              <article class="info__item">
+                <h4 class="info__title">Спільнота на дорозі</h4>
+                <div class="info__text text">
+                  <p>
+                    Обмінюйтеся історіями біля вогнища, знаходьте друзів на все
+                    життя та діліться порадами щодо подорожей.
+                  </p>
+                </div>
+              </article>
+              <article class="info__item">
+                <h4 class="info__title">Екологічні пригоди</h4>
+                <div class="info__text text">
+                  <p>
+                    З сонячними панелями, компостувальними туалетами та
+                    ефективним використанням енергії ви можете досліджувати,
+                    мінімізуючи вплив на навколишнє середовище.
+                  </p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="footer__containar">
+          <a href="mailto:info@eco-cabins.com" class="footer__mail"
+            >info@rv-cars.com
+          </a>
+          <div class="footer__logo">
+            <img src="./images/logo1_2.svg" alt="Logo" />
+          </div>
+          <ul class="footer__menu menu__footer">
+            <li class="menu__foote__item">
+              <a href="#" class="menu-footer__link"
+                >Використання <span lang="en">Cookies</span></a
+              >
+            </li>
+            <li class="menu__foote__item">
+              <a href="#" class="menu-footer__link"
+                >Політика конфіденційності</a
+              >
+            </li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>

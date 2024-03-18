@@ -1,0 +1,625 @@
+/* ----Fonts---- */
+
+/* rubik-300 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/rubik-v28-latin-300.woff2") format("woff2"),
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+      url("../fonts/rubik-v28-latin-300.woff") format("woff");
+}
+
+/* rubik-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/rubik-v28-latin-regular.woff2") format("woff2"),
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+      url("../fonts/rubik-v28-latin-regular.woff") format("woff");
+}
+
+/* rubik-500 - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/rubik-v28-latin-500.woff2") format("woff2"),
+    url("../fonts/rubik-v28-latin-500.woff") format("woff");
+}
+
+/* merriweather-900 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Merriweather";
+  font-style: normal;
+  font-weight: 900;
+  src: url("../fonts/merriweather-v30-latin-900.woff2") format("woff2"),
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+      url("../fonts/merriweather-v30-latin-900.woff") format("woff"); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+, iOS 5+ */
+}
+
+:root {
+  --greys-light-grey: #646d70;
+  --greys-white: #fff;
+  --greys-white-dark: #333;
+  --color-dark-green: #1f321b;
+}
+
+/* ----Knock the value---- */
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  min-width: 320px;
+  line-height: 1;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-style: inherit;
+}
+
+button {
+  line-height: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  color: inherit;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+/* ----Default styles---- */
+body {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 0.875rem;
+  color: var(--greys-light-grey);
+}
+
+/* Обгортка для сайту */
+.wrapper {
+  min-height: 100%; /* буде на весь екран */
+  overflow: clip; /* дозволяє уникнути горизонтального скролу, якщо надо вивести об'єкт за viewport і буде прощювати position: stick */
+
+  /* прибиваємо footer до низу, скільки не було би контенту, він завжди буде знизу */
+  display: flex;
+  flex-direction: column;
+}
+
+/* ----Adaptive settings---- */
+/* селектор атрибута використовується коли ми хочемо додати стилі для об'єктів по певнії умові */
+[class*="__container"] {
+  /* умова наступна: в атрибуті class має бути слово (не окремо, а частина назви), додаємо перед цим словом "__" для більшого візуального ефекту*/
+  max-width: 52.5rem;
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
+  margin: 0 auto;
+}
+
+/* ----Modul title---- */
+.title {
+  font-family: "Merriweather";
+  color: var(--greys-white, #fff);
+  font-size: 1.875rem; /* стиль основного тексту, який ми взяли для визначення ширини обмеджуючого контейнера*/
+  line-height: 130%;
+}
+.title--dark {
+  /* модифікатор до кольору */
+  color: var(--color-dark-green);
+}
+@media (max-width: 47.9988em) {
+  .title {
+    font-size: 1.5rem;
+  }
+}
+.text {
+  line-height: 185%;
+}
+.text p:not(:last-child) {
+  margin-bottom: 0.9375rem;
+}
+/* Загалькі стилі */
+.page {
+  flex: 1 1 auto; /* це дозволить збільшуватися */
+}
+.page-main {
+}
+.page__materials {
+}
+/* Основні стилі */
+
+/* ----Header---- */
+.header {
+  /*фіксуємо нашу шапку */
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 50; /*ставимо дуже великий, щоб header завжди був зверху */
+}
+.header::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgb(30 63 27 / 70%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.header.scroll::before {
+  opacity: 1;
+}
+.header__container {
+  display: flex;
+  position: relative;
+  z-index: 2;
+  gap: 1.25rem;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem;
+  min-height: 6.5625rem;
+}
+.header__logo {
+  overflow: hidden; /* при стисканні сторінки елементи меню наїдуть на логотип, залишая видимим тільки хатинку */
+}
+.header__logo img {
+  /*звертаємося беспосередньо до картинки */
+  width: 8.4375rem;
+}
+
+.header__body {
+  display: flex;
+  align-items: center;
+  column-gap: 2.6875rem; /*горизонтальний геп */
+}
+
+.header__menu {
+}
+.header__button {
+  padding: 0.625rem 1.3125rem;
+  background-color: var(--greys-white);
+  border-radius: 0.25rem;
+  transition: all 0.3s;
+}
+.header__button:hover {
+  background-color: var(--greys-white-dark);
+  color: var(--greys-white);
+}
+
+.menu {
+}
+.menu-list {
+  display: flex;
+  flex-wrap: wrap; /*щоб пункти меню не залазили один на оден */
+  align-items: center;
+  column-gap: 2.5rem; /* проміжок між пунктами горизонтально */
+  row-gap: 0.625rem; /* проміжок між пунктами вертикально */
+  color: var(--greys-white);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.menu-item {
+}
+.menu-link {
+}
+.menu-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 39.0625em) {
+  .header__container {
+    min-height: 70px;
+  }
+  .header__body {
+    column-gap: 1.25rem;
+  }
+  .header__button {
+    padding: 0.625rem 0.9375rem;
+  }
+  .menu__list {
+    column-gap: 1.25rem;
+    font-size: 14px;
+  }
+  /* використовуємо em */
+  .header__logo {
+    flex: 0 0 2.0625rem;
+  }
+}
+
+/* Головна секція */
+/* ----Main---- */
+.main-section {
+  min-height: 100vh; /*vh указують на те що треба сторінку розтягувати на всю висоту */
+  position: relative;
+  display: flex;
+}
+.main-section__container {
+  padding-top: 5.625rem;
+  padding-bottom: 3.125rem;
+  position: relative;
+  z-index: 2;
+  gap: 1.25rem;
+  grid-template-columns: 54.320988% 1fr; /*440/810 (значенню в Figma) це робить контейнер певного розміру */
+  align-items: center;
+  display: grid;
+  flex: 1 1 auto;
+}
+@media (max-width: 43.75em) {
+  .main-section__container {
+    grid-template-columns: auto;
+    align-content: center;
+  }
+}
+.main-section__content {
+}
+.main-section__label {
+  font-size: 1 rem;
+  font-weight: 500;
+  color: var(--greys-white);
+}
+.main-section__label:not(:last-child) {
+  margin-bottom: 0.75rem;
+}
+
+.main-section__title {
+}
+.title {
+}
+.main-section__video-link {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  color: var(--color-dark-green);
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+@media (min-width: 43.75em) {
+  .main-section__video-link {
+    justify-self: center;
+  }
+}
+
+.main-section__video-link-btn {
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  border-radius: 50%;
+}
+.main-section__image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #000;
+  z-index: -1;
+}
+.main-section__image img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover; /* ця властивість додається до зображення для ефекту бекграунду, для його позіціонування при збільшені чи зменьшенні сторінки, через це можна більш якісно керувати версткою */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.4;
+}
+@media (max-width: 43.75rem) {
+  .main-section__image img {
+    opacity: 0.6;
+  }
+}
+
+/*---- Materials ----*/
+
+.swiper {
+  overflow: hidden;
+}
+
+.swiper-initialized {
+  touch-action: pan-y;
+}
+
+.swiper-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  box-sizing: content-box;
+}
+
+.swiper-slide {
+  flex-shrink: 0;
+}
+
+.materials {
+  position: relative;
+  z-index: 2;
+}
+.materials__container {
+  position: relative;
+  padding-bottom: 1.25rem;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 50% minmax(17.5rem, 20.3125rem);
+  justify-content: space-between;
+  align-items: start;
+  gap: 1.25rem;
+  min-width: 0;
+}
+.materials__content {
+  padding-top: 1.5625rem;
+  display: grid;
+  gap: 0.8125rem;
+  justify-items: start;
+}
+.materials_title {
+}
+.materials__text {
+}
+.materials__more {
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.625rem 0.875rem;
+  border: 1px solid var(--greys-light-grey);
+}
+.materials__more:hover {
+  background: #000000;
+  color: beige;
+}
+.materials__slider {
+  transform: translate(0, -20.765027%); /* 76/366 */
+}
+.slider-materials {
+  position: relative;
+}
+.slider-materials__wrapper {
+}
+.slider-materials__slide {
+  aspect-ratio: 325 / 366; /* Вирішує проблему співвідношення сторін. Працює разом з object-fit: cover;*/
+  position: relative;
+}
+.slider-materials__slide img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+.slider-materials__pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.3125rem 1rem 0.3125rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.slider-materials__pagination .swiper-pagination-bullet {
+  flex: 0 0 0.5rem;
+  height: 0.5rem;
+  background-color: #fff;
+  opacity: 0.4;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+.slider-materials__pagination .swiper-pagination-bullet-active {
+  opacity: 1;
+}
+@media (min-width: 47.9988em) {
+  .materials::before {
+    content: "";
+    background-color: var(--greys-white);
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 2.3125rem;
+    transform: translate(0px, -100%);
+    width: 61.7%;
+  }
+  .materials::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 8.75rem;
+    background-color: var(--color-dark-green);
+    width: 38.3%;
+  }
+}
+
+@media (max-width: 47.9988em) {
+  .materials__container {
+    grid-template-columns: auto;
+  }
+  .materials__slider {
+    transform: translate(0, 0);
+  }
+}
+
+/* ----Inovate---- */
+
+.inovate {
+  background-color: var(--color-dark-green);
+  padding: 70px 0 80px 0;
+}
+.inovate__container {
+}
+.inovate__title {
+}
+.inovate__title:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+.inovate__text {
+  color: var(--greys-white);
+  columns: 2 15.625rem;
+  gap: 2.6875rem;
+}
+@media (max-width: 47.9988em) {
+  .inovate {
+    padding: 1.875rem 0px;
+  }
+}
+.info {
+  padding-top: 5.3125rem;
+  padding-bottom: 5.3125rem;
+}
+.info__container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 4.6875rem;
+  row-gap: 1.875rem;
+}
+.info__image {
+  text-align: center;
+}
+.info__image img {
+  max-width: 100%;
+}
+.info__content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 3.75rem;
+  row-gap: 2.3125rem;
+}
+.info__item {
+}
+.info__title {
+  font-family: "Merriweather";
+  color: var(--color-dark-green);
+  font-size: 1.125rem;
+}
+.info__title:not(:last-child) {
+  margin-bottom: 0.25rem;
+}
+.info__text {
+  font-size: 0.75rem;
+}
+@media (max-width: 52.5em) {
+  .info__content {
+    column-gap: 1.25rem;
+  }
+  .info__container {
+    column-gap: 1.5625rem;
+  }
+}
+@media (max-width: 47.9988em) {
+  /* 677,98px (47.9988em) це ширина мобільного пристрою, бо 678px це ще планщет */
+  .info {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+  .info__container {
+    grid-template-columns: auto;
+  }
+  .info__image {
+    /* ставимо зображення перед текстом, то текст важливіший */
+    order: 2;
+  }
+  .info__content {
+    /* порядок відображення в секції, текст на першому місці */
+    order: 1;
+  }
+}
+.footer {
+  background-color: var(--color-dark-green);
+  padding-top: 2.0625rem;
+  padding-bottom: 2.0625rem;
+}
+.footer__containar {
+  display: grid;
+  padding-left: 20px;
+  padding-right: 20px;
+  column-gap: 0.9375rem;
+  row-gap: 20px;
+  color: var(--greys-white);
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+}
+@media (max-width: 37.5em) {
+  .footer__containar {
+    grid-template-columns: auto;
+    justify-content: center;
+    text-align: center;
+  }
+}
+.footer__mail {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+.footer__mail:hover {
+  text-decoration: underline;
+}
+.footer__logo {
+  justify-self: center;
+}
+.footer__menu {
+}
+.menu__footer {
+  justify-self: end;
+  display: flex;
+  gap: 1.875rem;
+  align-items: center;
+}
+.menu__foote__item {
+}
+.menu-footer__link {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+.menu-footer__link:hover {
+  text-decoration: underline;
+}
