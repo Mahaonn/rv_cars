@@ -580,8 +580,6 @@ body {
 }
 .footer {
   background-color: var(--color-dark-green);
-  padding-top: 2.0625rem;
-  padding-bottom: 2.0625rem;
 }
 .footer__containar {
   display: grid;
